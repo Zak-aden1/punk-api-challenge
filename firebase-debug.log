@@ -1,0 +1,73 @@
+[debug] [2021-07-23T10:34:12.649Z] ----------------------------------------------------------------------
+[debug] [2021-07-23T10:34:12.654Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2021-07-23T10:34:12.655Z] CLI Version:   9.16.0
+[debug] [2021-07-23T10:34:12.655Z] Platform:      darwin
+[debug] [2021-07-23T10:34:12.655Z] Node Version:  v14.17.1
+[debug] [2021-07-23T10:34:12.657Z] Time:          Fri Jul 23 2021 11:34:12 GMT+0100 (British Summer Time)
+[debug] [2021-07-23T10:34:12.657Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-07-23T10:34:12.661Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-07-23T10:34:12.692Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-07-23T10:34:12.692Z] > authorizing via signed-in user (s.aden159@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/zakaden/Documents/Nology/learn-react/punk-api-challenge
+
+[debug] [2021-07-23T10:34:13.138Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-07-23T10:34:13.139Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2021-07-23T10:35:07.274Z] TypeError: Cannot read property 'setRawMode' of null
+    at ReadStream.setRawMode (tty.js:76:28)
+    at Interface._setRawMode (readline.js:325:16)
+    at Interface.close (readline.js:448:10)
+    at ReadStream.ontermend (readline.js:231:10)
+    at ReadStream.emit (events.js:387:35)
+    at ReadStream.emit (domain.js:470:12)
+    at endReadableNT (internal/streams/readable.js:1317:12)
+    at processTicksAndRejections (internal/process/task_queues.js:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2021-07-23T10:35:07.280Z] Error: write EIO
+    at afterWriteDispatched (internal/stream_base_commons.js:156:25)
+    at writeGeneric (internal/stream_base_commons.js:147:3)
+    at WriteStream.Socket._writeGeneric (net.js:787:11)
+    at WriteStream.Socket._write (net.js:799:8)
+    at writeOrBuffer (internal/streams/writable.js:358:12)
+    at WriteStream.Writable.write (internal/streams/writable.js:303:10)
+    at Console.log (/usr/local/lib/node_modules/firebase-tools/node_modules/winston/lib/winston/transports/console.js:79:23)
+    at Console._write (/usr/local/lib/node_modules/firebase-tools/node_modules/winston-transport/index.js:103:17)
+    at doWrite (/usr/local/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:428:64)
+    at writeOrBuffer (/usr/local/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:417:5)
+    at Console.Writable.write (/usr/local/lib/node_modules/firebase-tools/node_modules/winston-transport/node_modules/readable-stream/lib/_stream_writable.js:334:11)
+    at DerivedLogger.ondata (/usr/local/lib/node_modules/firebase-tools/node_modules/readable-stream/lib/_stream_readable.js:681:20)
+    at DerivedLogger.emit (events.js:387:35)
+    at DerivedLogger.emit (domain.js:470:12)
+    at addChunk (/usr/local/lib/node_modules/firebase-tools/node_modules/readable-stream/lib/_stream_readable.js:298:12)
+    at readableAddChunk (/usr/local/lib/node_modules/firebase-tools/node_modules/readable-stream/lib/_stream_readable.js:280:11)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2021-07-23T10:35:07.294Z] Error: write EIO
+    at afterWriteDispatched (internal/stream_base_commons.js:156:25)
+    at writeGeneric (internal/stream_base_commons.js:147:3)
+    at WriteStream.Socket._writeGeneric (net.js:787:11)
+    at WriteStream.Socket._write (net.js:799:8)
+    at writeOrBuffer (internal/streams/writable.js:358:12)
+    at WriteStream.Writable.write (internal/streams/writable.js:303:10)
+    at Object.exports.show (/usr/local/lib/node_modules/firebase-tools/node_modules/cli-cursor/index.js:14:4)
+    at CheckboxPrompt.onEnd (/usr/local/lib/node_modules/firebase-tools/node_modules/inquirer/lib/prompts/checkbox.js:130:15)
+    at SafeSubscriber._next (/usr/local/lib/node_modules/firebase-tools/node_modules/rxjs/internal/Observable.js:66:21)
+    at SafeSubscriber.__tryOrUnsub (/usr/local/lib/node_modules/firebase-tools/node_modules/rxjs/internal/Subscriber.js:205:16)
+    at SafeSubscriber.next (/usr/local/lib/node_modules/firebase-tools/node_modules/rxjs/internal/Subscriber.js:143:22)
+    at Subscriber._next (/usr/local/lib/node_modules/firebase-tools/node_modules/rxjs/internal/Subscriber.js:89:26)
+    at Subscriber.next (/usr/local/lib/node_modules/firebase-tools/node_modules/rxjs/internal/Subscriber.js:66:18)
+    at TakeSubscriber._next (/usr/local/lib/node_modules/firebase-tools/node_modules/rxjs/internal/operators/take.js:54:30)
+    at TakeSubscriber.Subscriber.next (/usr/local/lib/node_modules/firebase-tools/node_modules/rxjs/internal/Subscriber.js:66:18)
+    at FilterSubscriber._next (/usr/local/lib/node_modules/firebase-tools/node_modules/rxjs/internal/operators/filter.js:52:30)
+[error] 
+[error] Error: An unexpected error has occurred.

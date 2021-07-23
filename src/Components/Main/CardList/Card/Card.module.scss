@@ -1,0 +1,39 @@
+.card {
+    border: 2px solid black;
+    margin: 20px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+
+    img {
+        height: 300px;
+        width: auto;
+    }
+    .popupWrapper {
+        background-color: rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        .popup {
+            text-align: center;
+            width: 100%;
+            max-width: 300px;
+            margin: 10px auto;
+            padding: 20px;
+            background-color: white;
+            position: relative;
+
+            .popupClose {
+                position: absolute;
+                top: 5px;
+                right: 8px;
+                cursor: pointer;
+            }
+        }
+
+    }
+}
