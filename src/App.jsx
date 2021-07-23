@@ -6,13 +6,24 @@ import Main from './Components/Main'
 import BeerDetails from './Components/BeerDetails'
 import styles from './App.module.scss'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { createContext } from 'react'
 
+export const SearchContext = createContext({})
 const App = () => {
   const {ispending, error, data} = useFetch('https://api.punkapi.com/v2/beers')
+
+  const [ searchText, setSearchText] = useState('')
   
+
+  const search = {
+    searchText: searchText,
+    setSearchText: setSearchText
+  }
 
    
   return (
+    <SearchContext.Provider value={search}>
+
     <Router>
       <Switch>
 
@@ -21,7 +32,7 @@ const App = () => {
       { ispending && <div>loading....</div> }
       { error && <div>{error}</div> }
       <div className={styles.wrapper}>
-        <Navbar />
+        <Navbar setSearchText={setSearchText}/>
         { data && <Main  data={data}/> }
       {/* <h2>{data}</h2> */}
       </div>
@@ -37,6 +48,7 @@ const App = () => {
 
       </Switch>
     </Router>
+    </SearchContext.Provider>
   )
 }
 

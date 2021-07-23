@@ -1,11 +1,15 @@
 import React from 'react'
 import styles from './Navbar.module.scss'
-import { useState } from 'react'
+import { useContext } from 'react'
+import { SearchContext } from '../../App'
 
 const Navbar = () => {
-    const [ filter, setFilter] = useState('')
+
+    const search = useContext(SearchContext)
+    
 
     const filterSearch = (e) => {
+        search.setSearchText = e.target.value
         console.log(e.target.value);
     }
 
