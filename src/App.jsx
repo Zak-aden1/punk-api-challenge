@@ -9,20 +9,27 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { createContext } from 'react'
 
 export const SearchContext = createContext({})
+export const AcidFilter = createContext({})
 const App = () => {
   const {ispending, error, data} = useFetch('https://api.punkapi.com/v2/beers')
 
   const [ searchText, setSearchText] = useState('')
+  const [acidity, setAcidity] = useState('')
   
-
   const search = {
     searchText: searchText,
     setSearchText: setSearchText
   }
+  const acid = {
+    acidity: acidity,
+    setAcidity: setAcidity
+  }
+  
 
    
   return (
     <SearchContext.Provider value={search}>
+      <AcidFilter.Provider value={acid}>
 
     <Router>
       <Switch>
@@ -48,6 +55,7 @@ const App = () => {
 
       </Switch>
     </Router>
+    </AcidFilter.Provider>
     </SearchContext.Provider>
   )
 }

@@ -2,15 +2,17 @@ import React from 'react'
 import styles from './Navbar.module.scss'
 import { useContext } from 'react'
 import { SearchContext } from '../../App'
+import { AcidFilter } from '../../App'
 
 const Navbar = () => {
 
     const search = useContext(SearchContext)
+    const acid = useContext(AcidFilter)
+    console.log(acid);
     
 
     const filterSearch = (e) => {
-        search.setSearchText = e.target.value
-        console.log(e.target.value);
+        search.setSearchText(e.target.value)
     }
 
 
@@ -26,8 +28,8 @@ const Navbar = () => {
             <div className={styles.navWrapper}>
 
             <div>
-            <label >High ABV</label>
-            <input type="checkbox" />
+            <label >High ABV: over 6%</label>
+            <input type="checkbox"  value={acid.acidity}/>
             </div>
 
             <div>
@@ -35,7 +37,7 @@ const Navbar = () => {
             <input type="checkbox" />
             </div>
 
-            <label >Acidic ph -4</label>
+            <label >Acidic: Less than 4</label>
             <input type="checkbox" />
             </div>
 
