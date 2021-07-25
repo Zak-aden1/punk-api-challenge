@@ -1,0 +1,19 @@
+.create {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+
+    label {
+        display: block;
+        text-align: left;
+    }
+
+    input {
+        display: block;
+        width: 100%;
+    }
+
+    p {
+        margin-top: 10px;
+    }
+}

@@ -4,6 +4,7 @@ import useFetch from './useFetch'
 import Navbar from './Components/Navbar'
 import Main from './Components/Main'
 import BeerDetails from './Components/BeerDetails'
+import Create from './Components/Create'
 import styles from './App.module.scss'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { createContext } from 'react'
@@ -12,9 +13,10 @@ export const SearchContext = createContext({})
 export const AcidFilter = createContext({})
 const App = () => {
   const {ispending, error, data} = useFetch('https://api.punkapi.com/v2/beers')
+  console.log(data);
 
   const [ searchText, setSearchText] = useState('')
-  const [acidity, setAcidity] = useState('')
+  const [acidity, setAcidity] = useState(false)
   
   const search = {
     searchText: searchText,
@@ -50,6 +52,12 @@ const App = () => {
         <div className={styles.wrapper}>
           <BeerDetails/>
       </div>
+      </Route>
+
+      <Route path='/create'>
+        <div className={styles.wrapper}>
+        <Create />
+        </div>
       </Route>
 
 

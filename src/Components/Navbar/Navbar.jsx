@@ -29,7 +29,7 @@ const Navbar = () => {
 
             <div>
             <label >High ABV: over 6%</label>
-            <input type="checkbox"  value={acid.acidity}/>
+            <input type="checkbox"   />
             </div>
 
             <div>
@@ -38,7 +38,7 @@ const Navbar = () => {
             </div>
 
             <label >Acidic: Less than 4</label>
-            <input type="checkbox" />
+            <input type="checkbox" onChange={(e) => acid.setAcidity(e.target.checked)} />
             </div>
 
             </form>
