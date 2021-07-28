@@ -6,7 +6,7 @@ import { SearchContext } from '../../../App'
 import { AcidFilter } from '../../../App'
 
 const CardList = ({data}) => {
-    // const [filteredSearch, setFilteredSearch] = useState('')
+    // const [filteredSearch, setFilteredSearch] = useState([])
 
     const search = useContext(SearchContext)
     const acid = useContext(AcidFilter)
@@ -18,13 +18,18 @@ const CardList = ({data}) => {
     //     }
     //     // console.log(acid.acidity);
     //     console.log(filteredSearch);
-    // }, [acid.acidity])
+    // }, [filteredSearch])
+
+
+    // if (acid.acidity) {
+    //           return filteredSearch.filter((beer) => { return beer.ph < 4})
+    //     }
 
     // useEffect(() => {
     //     setFilteredSearch(data.filter((beer) => {
     //     return beer.name.toLowerCase().includes(search.searchText.toLowerCase().trim())
     // }))
-    // }, [filteredSearch])
+    // }, [data])
 
 
     let filteredSearch = data.filter((beer) => {
@@ -33,7 +38,7 @@ const CardList = ({data}) => {
 
     return (
         <div className={styles.cardList}>
-            {filteredSearch.map((d) => {
+            {filteredSearch && filteredSearch.map((d) => {
                 // if()
                 return <Card data={d}/>
             })}

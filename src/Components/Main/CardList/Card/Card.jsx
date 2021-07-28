@@ -15,7 +15,8 @@ const Card = (props) => {
                     <h4>{name}</h4>
                     <img src={image_url} alt="" />
                     <h5>{tagline}</h5>
-                    <p>{abv}, {ph}</p>
+                    <p> ABV: {abv}</p>
+                    <p> PH: {ph}</p>
                     <button onClick={() => {setClose(true)}}>Click for Info!</button>
                     <Link to={`/beers/${id}`}><button>id information</button></Link>
                     

@@ -1,0 +1,30 @@
+.beer {
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px solid black;
+
+    div { 
+        margin: 20px 0;
+    }
+
+    img {
+        height: 300px;
+        width: auto;
+    }
+    span {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    button {
+        background: #f1356d;
+        color: #fff;
+        border: 0;
+        padding: 8px;
+        border-radius: 8px;
+        cursor: pointer
+
+    }
+
+    
+}

@@ -1,6 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router'
 import useFetch from '../../useFetch'
+import styles from './BeerDetails.module.scss'
+import { Link } from 'react-router-dom'
 
 const BeerDetails = () => {
     const {id} = useParams()
@@ -9,15 +11,20 @@ const BeerDetails = () => {
 
 
     return (
-        <div>
+        <div className={styles.beer}>
             {ispending && <div>loading....</div>}
             {error && <div>{error}</div>}
 
             { beer && <div>
+                <h1>{beer[0].name}</h1>
                 <img src={beer[0].image_url} alt="" />
-                <p>{beer[0].description}</p>
+                <p><span>Description: </span>  {beer[0].description}</p>
                 {/* <p>Ingredients: {beer.ingredients.yeast}</p> */}
-                <p>first brewed: {beer[0].first_brewed}</p>
+                <p><span>First brewed:</span> {beer[0].first_brewed}</p>
+                <p><span>Brewers Tips:</span> {beer[0].brewers_tips}</p>
+                <Link to='/'>
+                <button>Go Back</button>
+                </Link>
             </div>} 
         </div>
     )
