@@ -11,12 +11,14 @@ import { createContext } from 'react'
 
 export const SearchContext = createContext({})
 export const AcidFilter = createContext({})
+export const abvFilter = createContext({})
 const App = () => {
   const {ispending, error, data} = useFetch('https://api.punkapi.com/v2/beers')
   console.log(data);
 
   const [ searchText, setSearchText] = useState('')
   const [acidity, setAcidity] = useState(false)
+  const [abvCheck, setabvCheck] = useState(false)
   
   const search = {
     searchText: searchText,
@@ -26,12 +28,18 @@ const App = () => {
     acidity: acidity,
     setAcidity: setAcidity
   }
+  const abv = {
+    abvCheck: abvCheck,
+    setabvCheck: setabvCheck,
+  }
+
   
 
    
   return (
     <SearchContext.Provider value={search}>
       <AcidFilter.Provider value={acid}>
+        <abvFilter.Provider value={abv}>
 
     <Router>
       <Switch>
@@ -63,6 +71,7 @@ const App = () => {
 
       </Switch>
     </Router>
+    </abvFilter.Provider>
     </AcidFilter.Provider>
     </SearchContext.Provider>
   )
