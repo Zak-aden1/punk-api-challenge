@@ -1,39 +1,13 @@
 .navGrid {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
+    // position: fixed;
     padding: 20px;
+    width: 300px;
 
-    .search {
-        display: flex;
-        flex-direction: column;
-        margin: 20px auto;
+    .searchForm {
+        width: 200px;
 
-        input {
-            width: 100%;
-        }
-    }
-    
-    .navWrapper {
-        margin: 100px auto;
-        padding: 20px;
-        text-align: center;
-
-        div {
-            margin: 20px;
-            text-align: left;
-        }
     }
 }
 
-.radios {
-    display: grid;
-    grid-template-columns: 8% 1%;
-
-    
-}
-.checkbox {
-    width: 200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}

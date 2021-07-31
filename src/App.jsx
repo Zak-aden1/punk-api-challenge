@@ -3,11 +3,22 @@ import { useState, useEffect } from 'react'
 import useFetch from './useFetch'
 import Navbar from './Components/Navbar'
 import Main from './Components/Main'
+import TheMenu from './Components/Menu'
 import BeerDetails from './Components/BeerDetails'
 import Create from './Components/Create'
 import styles from './App.module.scss'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { createContext } from 'react'
+import { createTheme, ThemeProvider } from '@material-ui/core'
+
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Quicksand',
+    fontWeightLight: 400,
+    fontWeightRegular: 500,
+    fontWeightBold: 600,
+  }
+})
 
 export const SearchContext = createContext({})
 export const AcidFilter = createContext({})
@@ -37,6 +48,7 @@ const App = () => {
 
    
   return (
+    <ThemeProvider theme={theme}>
     <SearchContext.Provider value={search}>
       <AcidFilter.Provider value={acid}>
         <abvFilter.Provider value={abv}>
@@ -48,6 +60,9 @@ const App = () => {
     <div>
       { ispending && <div>loading....</div> }
       { error && <div>{error}</div> }
+      <div>
+        <TheMenu />
+      </div>
       <div className={styles.wrapper}>
         <Navbar setSearchText={setSearchText}/>
         { data && <Main  data={data}/> }
@@ -74,6 +89,7 @@ const App = () => {
     </abvFilter.Provider>
     </AcidFilter.Provider>
     </SearchContext.Provider>
+    </ThemeProvider>
   )
 }
 

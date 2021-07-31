@@ -1,10 +1,12 @@
 import React from 'react'
 import styles from './CardList.module.scss'
-import Card from './Card'
+import Cards from './Card'
 import { useContext , useEffect, useState} from 'react'
 import { SearchContext } from '../../../App'
 import { AcidFilter } from '../../../App'
 import { abvFilter } from '../../../App'
+import { Grid } from '@material-ui/core'
+import { Paper } from '@material-ui/core'
 
 const CardList = ({data}) => {
     // const [filteredSearch, setFilteredSearch] = useState([])
@@ -45,13 +47,20 @@ const CardList = ({data}) => {
     })
 
     return (
-        <div className={styles.cardList}>
-            {filteredSearch && filteredSearch.map((d) => {
+        // <div className={styles.cardList}>
+        <div>
+        
+        <Grid container className={styles.cardList} spacing={3}>
+            {filteredSearch && filteredSearch.map((d) => (
                 // if()
-                return <Card data={d}/>
-            })}
+                <Grid item key={d.id} xs={12} md={6} lg={4}>
+                    <Cards data={d}/>
+                </Grid>
+            ))}
             
-        </div>
+            </Grid>
+            </div>
+
     )
 }
 
