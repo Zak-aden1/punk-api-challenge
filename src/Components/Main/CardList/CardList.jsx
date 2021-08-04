@@ -50,10 +50,10 @@ const CardList = ({data}) => {
         // <div className={styles.cardList}>
         <div>
         
-        <Grid container className={styles.cardList} spacing={3}>
+        <Grid alignContent='center' container className={styles.cardList} spacing={3}>
             {filteredSearch && filteredSearch.map((d) => (
                 // if()
-                <Grid item key={d.id} xs={12} md={6} lg={4}>
+                <Grid alignContent='center' item key={d.id} xs={10} md={6} lg={4}>
                     <Cards data={d}/>
                 </Grid>
             ))}

@@ -8,3 +8,11 @@
 .wrapper {
     display: flex;
 }
+// responsive 
+
+@media screen and (max-width: 950px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+}

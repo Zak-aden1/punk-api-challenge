@@ -44,7 +44,9 @@ const Cards = (props) => {
             subheader={tagline}
             />
             <CardMedia
-            style = {{ height: 300, paddingTop: '56.25%'}}
+            className={styles.image}
+            style = {{ height: 300, paddingTop: '56.25%', width: 'auto', margin: '0px auto', backgroundSize: 'contain'}}
+            
             image={image_url}
             // src={image_url}
             title="Paella dish"

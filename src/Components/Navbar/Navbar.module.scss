@@ -10,4 +10,14 @@
 
     }
 }
+@media screen and (max-width: 950px) {
+    .navGrid {
+        width: 100vw;
+        display: flex;
+        flex-grow: 1;
 
+        .searchForm {
+            width: 100vw;
+        }
+    }
+}
