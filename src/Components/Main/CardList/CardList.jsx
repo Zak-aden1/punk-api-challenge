@@ -6,9 +6,19 @@ import { SearchContext } from '../../../App'
 import { AcidFilter } from '../../../App'
 import { abvFilter } from '../../../App'
 import { Grid } from '@material-ui/core'
-import { Paper } from '@material-ui/core'
+import { Container } from '@material-ui/core'
+import { makeStyles } from '@material-ui/styles'
+
+const useStyles = makeStyles((theme) => {
+    return {
+        cards: {
+            padding: theme.spacing(3)
+        }
+    }
+})
 
 const CardList = ({data}) => {
+    const classes = useStyles()
     // const [filteredSearch, setFilteredSearch] = useState([])
 
     const search = useContext(SearchContext)
@@ -47,19 +57,18 @@ const CardList = ({data}) => {
     })
 
     return (
-        // <div className={styles.cardList}>
-        <div>
+        <Container className={classes.page}>
         
-        <Grid alignContent='center' container className={styles.cardList} spacing={3}>
+        <Grid container  spacing={3}>
             {filteredSearch && filteredSearch.map((d) => (
                 // if()
-                <Grid alignContent='center' item key={d.id} xs={10} md={6} lg={4}>
+                <Grid item key={d.id} xs={10} md={6} lg={4}>
                     <Cards data={d}/>
                 </Grid>
             ))}
             
             </Grid>
-            </div>
+            </Container>
 
     )
 }

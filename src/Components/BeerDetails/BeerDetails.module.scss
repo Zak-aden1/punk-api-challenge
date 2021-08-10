@@ -1,7 +1,9 @@
 .beer {
-    max-width: 600px;
-    margin: 0 auto;
-    border: 2px solid black;
+    max-width: 100%;
+    // margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
 
     div { 
         margin: 20px 0;
@@ -27,4 +29,11 @@
     }
 
     
+}
+
+.types {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+
 }

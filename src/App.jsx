@@ -72,12 +72,14 @@ const App = () => {
         </Route>
 
       <Route path='/beers/:id'>
+        <TheMenu />
         <div className={styles.wrapper}>
           <BeerDetails/>
       </div>
       </Route>
 
-      <Route path='/create'>
+      <Route path='/favs'>
+        <TheMenu />
         <div className={styles.wrapper}>
         <Create />
         </div>

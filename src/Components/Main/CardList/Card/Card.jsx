@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Card.module.scss'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import { Button } from '@material-ui/core'
 import { Container } from '@material-ui/core'
@@ -20,11 +20,15 @@ const useStyles = makeStyles({
         display: 'block',
         marginTop: 10,
         width: '100%'
+    },
+    cardHeader: {
+        // height: '5px'
     }
 })
 
 const Cards = (props) => {
     const classes = useStyles()
+    const history = useHistory()
 
     const [close, setClose] = useState(false)
 
@@ -33,8 +37,9 @@ const Cards = (props) => {
 
     return (
         <div>
-        <Card className={styles.card} key={id} elevation={9}>
+        <Card className={styles.card} key={id} elevation={8}>
             <CardHeader 
+            className={styles.cardHeader}
              action={
             <IconButton>
             <FavoriteBorderOutlinedIcon />
@@ -43,12 +48,10 @@ const Cards = (props) => {
             title={name}
             subheader={tagline}
             />
-            <CardMedia
-            className={styles.image}
-            style = {{ height: 300, paddingTop: '56.25%', width: 'auto', margin: '0px auto', backgroundSize: 'contain'}}
             
+            <CardMedia
+            style = {{ height: 300, paddingTop: '56.25%', width: 'auto', margin: '0px auto', backgroundSize: 'contain'}}
             image={image_url}
-            // src={image_url}
             title="Paella dish"
             />
             <CardContent>
@@ -58,9 +61,9 @@ const Cards = (props) => {
                 <Typography variant='p'>
                     PH: {ph}
                 </Typography>
-                <Button onClick={() => {setClose(true)}} 
+                <Button onClick={() => {history.push(`/beers/${id}`)}} 
                     className={classes.btn}
-                    variant='contained' 
+                    // variant='outlined' 
                     type='submit'
                     color='secondary'
                     endIcon={<InfoOutlinedIcon/>}
