@@ -25,6 +25,7 @@ const Random = ({idRandom}) => {
         <div>
              {ispending && <div>loading....</div>}
             {error && <div>{error}</div>}
+            
             {beer && <Card className={styles.card} key={beer.id} elevation={8}>
             <CardHeader 
             className={styles.cardHeader}
@@ -33,21 +34,21 @@ const Random = ({idRandom}) => {
             <FavoriteBorderOutlinedIcon />
             </IconButton>
              }
-            title={beer.name}
-            subheader={beer.tagline}
+            title={beer[0].name}
+            subheader={beer[0].tagline}
             />
             
             <CardMedia
             style = {{ height: 300, paddingTop: '56.25%', width: 'auto', margin: '0px auto', backgroundSize: 'contain'}}
-            image={beer.image_url}
+            image={beer[0].image_url}
             title="Paella dish"
             />
             <CardContent>
                 <Typography variant='p'>
-                    ABV: {beer.abv}
+                    ABV: {beer[0].abv}
                 </Typography>
                 <Typography variant='p'>
-                    PH: {beer.ph}
+                    PH: {beer[0].ph}
                 </Typography>
                 {/* <Button onClick={() => {history.push(`/beers/${id}`)}} 
                     className={classes.btn}

@@ -59,13 +59,16 @@ function getModalStyle() {
             justifyContent: 'space-between'
         },
         paper: {
-    position: 'absolute',
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  }
+            position: 'absolute',
+            width: 400,
+            backgroundColor: theme.palette.background.paper,
+            border: '2px solid #000',
+            boxShadow: theme.shadows[5],
+            padding: theme.spacing(2, 4, 3),
+        },
+        refresh: {
+            cursor: 'pointer'
+        }
         
 }
     })
@@ -85,6 +88,7 @@ const TheMenu = () => {
     
   };
 //   let idRandom = Math.round(Math.random() * 25);
+console.log(Math.round(Math.random() * 25));
 
   const handleClose = () => {
     setOpen(false);
@@ -92,8 +96,8 @@ const TheMenu = () => {
     const body = (
     <div style={modalStyle} className={classes.paper}>
         <div className={classes.popupIcons}>
-        <RefreshIcon onClick={() =>{setIdRandom(Math.round(Math.random() * 25))}} className={classes.refresh} button />
-        <CancelIcon onClick={() => {setOpen(false)}} />
+        <RefreshIcon onClick={() =>{setIdRandom(Math.round(Math.random() * 25))}} className={classes.refresh}  />
+        <CancelIcon className={classes.refresh} onClick={() => {setOpen(false)}} />
         </div>
         
         <Random idRandom={idRandom} />
