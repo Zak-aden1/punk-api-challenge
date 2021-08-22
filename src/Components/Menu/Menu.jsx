@@ -17,6 +17,7 @@ import Card from '../Main/CardList/Card'
 import RefreshIcon from '@material-ui/icons/Refresh';
 import Random from '../Random/Random'
 import CancelIcon from '@material-ui/icons/Cancel';
+import { auth, provider } from '../../firebase'
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -78,6 +79,11 @@ const TheMenu = () => {
     const history = useHistory()
     const location = useLocation()
     const [idRandom, setIdRandom] =useState(Math.round(Math.random() * 25))
+
+    //firebase login 
+    const handleLogin = () => {
+        // auth.
+    }
 
     // modal
   // getModalStyle is not a pure function, we roll the style only on the first render
@@ -160,7 +166,7 @@ console.log(Math.round(Math.random() * 25));
                         <Typography>
                             User
                         </Typography>
-                        <Avatar className={classes.avatar}/>
+                        <Avatar onClick={() => handleLogin()} className={classes.avatar}/>
                     </Toolbar>
                 </AppBar>
                 <div className={classes.toolbar}></div>
