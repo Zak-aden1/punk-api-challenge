@@ -31,7 +31,7 @@ const Random = ({idRandom}) => {
             className={styles.cardHeader}
              action={
             <IconButton>
-            <FavoriteBorderOutlinedIcon />
+            {/* <FavoriteBorderOutlinedIcon /> */}
             </IconButton>
              }
             title={beer[0].name}
@@ -43,7 +43,7 @@ const Random = ({idRandom}) => {
             image={beer[0].image_url}
             title="Paella dish"
             />
-            <CardContent>
+            <CardContent className={styles.abv}>
                 <Typography variant='p'>
                     ABV: {beer[0].abv}
                 </Typography>

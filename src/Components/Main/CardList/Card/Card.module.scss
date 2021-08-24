@@ -56,4 +56,19 @@
 
 .card {
     width: 300px;
+    border-radius: 10px;
+}
+
+.abv {
+    width: 300px;
+
+    span {
+        width: 100%;
+        margin-right: 70px;
+    }
+}
+
+.fav {
+    color: red;
+    background-color: transparent;
 }

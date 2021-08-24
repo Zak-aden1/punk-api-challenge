@@ -14,12 +14,18 @@ import { CardMedia } from '@material-ui/core'
 import { IconButton } from '@material-ui/core'
 import { Typography } from '@material-ui/core'
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import { firestore } from '../../../../firebase'
+import { useContext } from 'react'
+import { theCrudContext } from '../../../../context/CrudContext'
+import { UserContext } from '../../../../context/UserContex'
 
 const useStyles = makeStyles({
     btn: {
         display: 'block',
         marginTop: 10,
-        width: '100%'
+        width: '100%',
+        flexGrow: 2
     },
     cardHeader: {
         // height: '5px'
@@ -31,22 +37,43 @@ const Cards = (props) => {
     const history = useHistory()
 
     const [close, setClose] = useState(false)
+    const [favIcon, setFavIcon] =useState(false)
 
     const {abv, name, description, image_url, tagline, ph, ingredients, first_brewed, id} = props.data
+    const shortenName = name.length < 15 ? name : name.substring(0, 15) + "...";
+    const shortenTagLine = name.length < 27 ? name : name.substring(0, 27) + "...";
 
+    const crudContext = useContext(theCrudContext);
+    const { toggleFavs } = crudContext;
+
+    const userContext = useContext(UserContext);
+    const { user, } = userContext;
+
+    
+
+    const favouriteIcon = !favIcon ? <FavoriteBorderOutlinedIcon className={styles.fav}  />: <FavoriteIcon className={styles.fav} />
+
+    const handleFirebase = (beer) => {
+        if(user) {
+            toggleFavs(beer, favIcon)
+            setFavIcon(!favIcon)
+        } else {
+            alert("Sign in to start liking beers")
+        }
+    }
 
     return (
         <div>
         <Card className={styles.card} key={id} elevation={8}>
             <CardHeader 
             className={styles.cardHeader}
-             action={
-            <IconButton>
-            <FavoriteBorderOutlinedIcon />
+            action={
+            <IconButton onClick={() => (handleFirebase(props.data))}>
+            {favouriteIcon}
             </IconButton>
-             }
-            title={name}
-            subheader={tagline}
+            }
+            title={shortenName}
+            subheader={shortenTagLine}
             />
             
             <CardMedia
@@ -54,7 +81,7 @@ const Cards = (props) => {
             image={image_url}
             title="Paella dish"
             />
-            <CardContent>
+            <CardContent className={styles.abv}>
                 <Typography variant='p'>
                     ABV: {abv}
                 </Typography>

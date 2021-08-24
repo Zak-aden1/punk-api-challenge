@@ -10,7 +10,7 @@ import Random from '../Random/Random'
 const BeerDetails = () => {
     const {id} = useParams()
     const {ispending, error, data: beer} = useFetch('https://api.punkapi.com/v2/beers/' + id)
-    // console.log(beer[0].description);
+    console.log(beer);
 
 
     return (
@@ -18,29 +18,22 @@ const BeerDetails = () => {
             {ispending && <div>loading....</div>}
             {error && <div>{error}</div>}
 
-            {/* { beer && <div>
+        
+            { beer && <div>
                 <h1>{beer[0].name}</h1>
                 <img src={beer[0].image_url} alt="" />
-                <p><span>Description: </span>  {beer[0].description}</p>
-                <p>Ingredients: {beer.ingredients.yeast}</p>
-                <p><span>First brewed:</span> {beer[0].first_brewed}</p>
-                <p><span>Brewers Tips:</span> {beer[0].brewers_tips}</p>
                 <Link to='/'>
                 <button>Go Back</button>
                 </Link>
-            </div>}  */}
-            <Random />
+            </div>} 
+            {beer && <div className={styles.secondDescription}>
+                <p><span>Description: </span>  {beer[0].description}</p>
+                {/* <p>Ingredients: {beer.ingredients.yeast}</p> */}
+                <p><span>First brewed:</span> {beer[0].first_brewed}</p>
+                <p><span>Brewers Tips:</span> {beer[0].brewers_tips}</p>
+                <h4>Can be paired with:</h4>
+                </div>}
 
-            {/* {beer && <div className={styles.types}>
-            <Container>
-                <Typography variant='h2' >{beer[0].name}</Typography>
-                <img src={beer[0].image_url} alt="" />
-            </Container>
-            <Container>
-                <Typography variant='h2' >{beer[0].name}</Typography>
-                <img src={beer[0].image_url} alt="" />
-            </Container>
-            </div>} */}
         </div>
     )
 }

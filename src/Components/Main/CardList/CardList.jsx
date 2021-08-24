@@ -52,7 +52,6 @@ const CardList = ({data}) => {
         if (abv.abvCheck) {
             return beer.abv > 6
         }
-        
         return beer.name.toLowerCase().includes(search.searchText.toLowerCase().trim())
     })
 

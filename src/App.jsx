@@ -5,11 +5,13 @@ import Navbar from './Components/Navbar'
 import Main from './Components/Main'
 import TheMenu from './Components/Menu'
 import BeerDetails from './Components/BeerDetails'
-import Create from './Components/Create'
+import Favs from './Components/Favs'
 import styles from './App.module.scss'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { createContext } from 'react'
 import { createTheme, ThemeProvider } from '@material-ui/core'
+import UserContex from './context/UserContex'
+import CrudContext from './context/CrudContext'
 
 const theme = createTheme({
   typography: {
@@ -25,7 +27,6 @@ export const AcidFilter = createContext({})
 export const abvFilter = createContext({})
 const App = () => {
   const {ispending, error, data} = useFetch('https://api.punkapi.com/v2/beers')
-  console.log(data);
 
   const [ searchText, setSearchText] = useState('')
   const [acidity, setAcidity] = useState(false)
@@ -49,6 +50,8 @@ const App = () => {
    
   return (
     <ThemeProvider theme={theme}>
+      <UserContex>
+        <CrudContext>
     <SearchContext.Provider value={search}>
       <AcidFilter.Provider value={acid}>
         <abvFilter.Provider value={abv}>
@@ -81,7 +84,7 @@ const App = () => {
       <Route path='/favs'>
         <TheMenu />
         <div className={styles.wrapper}>
-        <Create />
+        <Favs />
         </div>
       </Route>
 
@@ -91,6 +94,8 @@ const App = () => {
     </abvFilter.Provider>
     </AcidFilter.Provider>
     </SearchContext.Provider>
+     </CrudContext>
+    </UserContex>
     </ThemeProvider>
   )
 }

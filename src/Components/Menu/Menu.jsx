@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { AppBar, ThemeProvider } from '@material-ui/core'
 import { Toolbar } from '@material-ui/core'
 import { Typography } from '@material-ui/core'
@@ -17,7 +17,9 @@ import Card from '../Main/CardList/Card'
 import RefreshIcon from '@material-ui/icons/Refresh';
 import Random from '../Random/Random'
 import CancelIcon from '@material-ui/icons/Cancel';
-import { auth, provider } from '../../firebase'
+// import { auth, provider } from '../../firebase'
+import { UserContext } from '../../context/UserContex'
+
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -80,10 +82,13 @@ const TheMenu = () => {
     const location = useLocation()
     const [idRandom, setIdRandom] =useState(Math.round(Math.random() * 25))
 
-    //firebase login 
-    const handleLogin = () => {
-        // auth.
-    }
+    //firebase Import props 
+    const userContext = useContext(UserContext);
+    const { user, signIn, signOut } = userContext;
+
+    const ShowUserName = user ? user.displayName : 'guest';
+
+    const logInOption = !user ? <span > sign In </span> : <span > sign Out </span>
 
     // modal
   // getModalStyle is not a pure function, we roll the style only on the first render
@@ -164,9 +169,9 @@ console.log(Math.round(Math.random() * 25));
                     </List>
 
                         <Typography>
-                            User
+                            {ShowUserName}
                         </Typography>
-                        <Avatar onClick={() => handleLogin()} className={classes.avatar}/>
+                        <Avatar onClick={!user ? signIn: signOut}  className={classes.avatar}/>
                     </Toolbar>
                 </AppBar>
                 <div className={classes.toolbar}></div>
