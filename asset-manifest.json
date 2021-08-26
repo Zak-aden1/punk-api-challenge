@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Zak-aden1/punk-api-challenge/static/css/main.6af211f0.chunk.css",
+    "main.js": "/Zak-aden1/punk-api-challenge/static/js/main.87b18e93.chunk.js",
+    "main.js.map": "/Zak-aden1/punk-api-challenge/static/js/main.87b18e93.chunk.js.map",
+    "runtime-main.js": "/Zak-aden1/punk-api-challenge/static/js/runtime-main.5fb52b57.js",
+    "runtime-main.js.map": "/Zak-aden1/punk-api-challenge/static/js/runtime-main.5fb52b57.js.map",
+    "static/js/2.c54cf1a7.chunk.js": "/Zak-aden1/punk-api-challenge/static/js/2.c54cf1a7.chunk.js",
+    "static/js/2.c54cf1a7.chunk.js.map": "/Zak-aden1/punk-api-challenge/static/js/2.c54cf1a7.chunk.js.map",
+    "index.html": "/Zak-aden1/punk-api-challenge/index.html",
+    "precache-manifest.2a91c54c3a459e17ac4523ea75e89403.js": "/Zak-aden1/punk-api-challenge/precache-manifest.2a91c54c3a459e17ac4523ea75e89403.js",
+    "service-worker.js": "/Zak-aden1/punk-api-challenge/service-worker.js",
+    "static/css/main.6af211f0.chunk.css.map": "/Zak-aden1/punk-api-challenge/static/css/main.6af211f0.chunk.css.map",
+    "static/js/2.c54cf1a7.chunk.js.LICENSE.txt": "/Zak-aden1/punk-api-challenge/static/js/2.c54cf1a7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5fb52b57.js",
+    "static/js/2.c54cf1a7.chunk.js",
+    "static/css/main.6af211f0.chunk.css",
+    "static/js/main.87b18e93.chunk.js"
+  ]
+}
