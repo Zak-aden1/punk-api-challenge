@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Card.module.scss'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
 import { Button } from '@material-ui/core'
@@ -29,17 +29,22 @@ const useStyles = makeStyles({
     },
     cardHeader: {
         // height: '5px'
+    },
+    card: {
+        backgroundColor: 'lightBlue',
+        width: 300
     }
 })
 
-const Cards = (props) => {
+const Cards = (props,) => {
     const classes = useStyles()
     const history = useHistory()
 
     const [close, setClose] = useState(false)
-    const [favIcon, setFavIcon] =useState(false)
+    
+    const {abv, name, description, image_url, tagline, ph, ingredients, first_brewed, favIcon, id} = props.data
+    const [fav, setFav] =useState(props.data.favIcon)
 
-    const {abv, name, description, image_url, tagline, ph, ingredients, first_brewed, id} = props.data
     const shortenName = name.length < 15 ? name : name.substring(0, 15) + "...";
     const shortenTagLine = name.length < 27 ? name : name.substring(0, 27) + "...";
 
@@ -49,22 +54,30 @@ const Cards = (props) => {
     const userContext = useContext(UserContext);
     const { user, } = userContext;
 
-    
-
-    const favouriteIcon = !favIcon ? <FavoriteBorderOutlinedIcon className={styles.fav}  />: <FavoriteIcon className={styles.fav} />
+    let favouriteIcon; 
+    if (!fav) {
+        favouriteIcon = <FavoriteBorderOutlinedIcon className={styles.fav}  />
+        console.log("Outline icon for: " + name)
+    } else {
+        favouriteIcon = <FavoriteIcon className={styles.fav} />
+        console.log("SOLID icon for: " + name)
+    }
 
     const handleFirebase = (beer) => {
         if(user) {
-            toggleFavs(beer, favIcon)
-            setFavIcon(!favIcon)
+            beer.favIcon = !beer.favIcon
+            toggleFavs(beer, beer.favIcon)
+            setFav(props.data.favIcon)
+            console.log(name + " beer favourite status is " + props.data.favIcon)
         } else {
             alert("Sign in to start liking beers")
         }
     }
 
+
     return (
         <div>
-        <Card className={styles.card} key={id} elevation={8}>
+        <Card className={classes.card} key={id} elevation={8}>
             <CardHeader 
             className={styles.cardHeader}
             action={
@@ -82,19 +95,22 @@ const Cards = (props) => {
             title="Paella dish"
             />
             <CardContent className={styles.abv}>
+                <div className={styles.abvPh}>
                 <Typography variant='p'>
                     ABV: {abv}
                 </Typography>
-                <Typography variant='p'>
+                <Typography className={styles.ph} variant='p'>
                     PH: {ph}
                 </Typography>
+                </div>
                 <Button onClick={() => {history.push(`/beers/${id}`)}} 
                     className={classes.btn}
                     // variant='outlined' 
                     type='submit'
                     color='secondary'
                     endIcon={<InfoOutlinedIcon/>}
-                    >Click for Info!</Button>
+                    >
+                    Click for Info!</Button>
                 
             </CardContent>
 

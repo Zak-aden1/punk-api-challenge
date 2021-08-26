@@ -3,11 +3,15 @@ import { firestore } from '../firebase'
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import styles from '../Components/Main/CardList/Card/Card.module.scss'
+import { UserContext } from './UserContex';
+import { useContext } from 'react';
 
 export const theCrudContext = createContext({})
 
 const CrudContext = (props) => {
 
+    const userContext = useContext(UserContext);
+    const { user } = userContext;
 
     const removeFromFavourites = (beer) => {
         firestore.collection("favourites").doc(beer.name).delete()
@@ -32,8 +36,14 @@ const CrudContext = (props) => {
                 alert("Error Adding to Favourites: ", error);
 });}
 
-    const toggleFavs = (beer, favIcon) => {
-        !favIcon ? addToFirebase(beer): removeFromFavourites(beer)
+    const toggleFavs = (beer, isNotFavourite) => {
+        // if(user) {
+        //     beer.favIcon = !beer.favIcon
+        //     !beer.favIcon ? addToFirebase(beer): removeFromFavourites(beer)
+        // } else {
+        //     alert("Sign in to start liking beers")
+        // }
+        isNotFavourite ? addToFirebase(beer): removeFromFavourites(beer)
     }
 
     // const handleFirebase = (beer) => {

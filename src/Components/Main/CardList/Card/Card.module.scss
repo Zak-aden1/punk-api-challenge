@@ -64,11 +64,22 @@
 
     span {
         width: 100%;
-        margin-right: 70px;
+        // margin-right: 70px;
     }
 }
 
 .fav {
     color: red;
     background-color: transparent;
+}
+
+.abvPh {
+    margin-right: 0;
+    display: flex;
+    justify-content: space-between;
+
+    .ph {
+        margin-left: 144px;
+        margin-right: 0;
+    }
 }

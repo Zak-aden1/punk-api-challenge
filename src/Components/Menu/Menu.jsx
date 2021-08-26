@@ -48,7 +48,9 @@ function getModalStyle() {
        title: {
             flexGrow: 1,
             alignSelf: 'flex-end',
-            display: 'flex'
+            display: 'flex',
+            width: 55,
+            marginRight: 300
         },
         active: {
             backgroundColor: blue[700],
@@ -113,7 +115,7 @@ console.log(Math.round(Math.random() * 25));
         
         <Random idRandom={idRandom} />
     </div>
-  );
+);
 
 
     const menu = [

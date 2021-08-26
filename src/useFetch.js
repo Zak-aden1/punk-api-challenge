@@ -14,8 +14,9 @@ const useFetch = (url) => {
         return res.json()
       })
       .then((data) => {
-        console.log(data);
-        setData(data)
+        const beers = data.map((beer) =>({ ...beer, favIcon: false}))
+        // console.log(beers);
+        setData(beers)
         setIspending(false)
         setError(null)
       })

@@ -29,9 +29,18 @@ const BeerDetails = () => {
             {beer && <div className={styles.secondDescription}>
                 <p><span>Description: </span>  {beer[0].description}</p>
                 {/* <p>Ingredients: {beer.ingredients.yeast}</p> */}
-                <p><span>First brewed:</span> {beer[0].first_brewed}</p>
+                <p className={styles.firstBrewed}><span>First brewed:</span> {beer[0].first_brewed}</p>
                 <p><span>Brewers Tips:</span> {beer[0].brewers_tips}</p>
+                <div style={{display: 'flex', flexDirection: 'row'}}>
                 <h4>Can be paired with:</h4>
+                {beer[0].food_pairing.map((item) => (
+                    <div>
+                    <ul>
+                        <li>{item}</li>
+                    </ul>
+                    </div>
+                ))}
+                </div>
                 </div>}
 
         </div>
